@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'services/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container-fluid" style='margin-top:0px;'>
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebarcard">
+                <ul class="nav nav-sidebar">
+                    <li class="active"><a href="#"> Visão Geral<span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Realizar chamada</a></li>
+                </ul>
+            </div>
+            {% block content %}
+            
+            {% endblock content %}
+        </div>
+    </div>   
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

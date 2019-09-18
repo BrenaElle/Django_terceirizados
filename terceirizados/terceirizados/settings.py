@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app.core',
     'app.services',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -100,6 +101,9 @@ DATABASES = {
 }
 
 AUTH_USER_MODEL = 'core.User'
+LOGIN_REDIRECT_URL = '/dashboard/'
+LOGOUT_REDIRECT_URL = ''
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
