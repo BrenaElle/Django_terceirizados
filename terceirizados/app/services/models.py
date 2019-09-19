@@ -40,13 +40,13 @@ class Services(CreateUpdateModel):
 
     @property
     def get_department(self):
-        if self.status == 1:
+        if self.department == 1:
             return 'Limpeza'
-        elif self.status == 2:
+        elif self.department == 2:
             return 'Manutenção'
-        elif self.status == 3:
+        elif self.department == 3:
             return 'Piscina'
-        elif self.status == 4:
+        elif self.department == 4:
             return 'Jardinagem'
 
     class Meta:

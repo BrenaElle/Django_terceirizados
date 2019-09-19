@@ -2,7 +2,10 @@
  * Base structure
  */
 
+
 /* Move down content because we have a fixed navbar that is 50px tall */
+
+html,
 body {
     background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
     background-size: cover;
@@ -10,106 +13,144 @@ body {
     height: 100%;
     font-family: 'Numans', sans-serif;
     color: #FFC312;
-    padding-top: 50px;
-  }
-
-a{
-  color: #FFC312;
 }
-  
-  .sidebarcard{
+
+a {
+    color: #FFC312;
+}
+
+.sidebarcard {
     margin-top: auto;
     margin-bottom: auto;
-    background-color: rgba(0,0,0,0.5) !important;
-  }
-  @media (min-width: 768px) {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+@media (min-width: 768px) {
     .sidebarcard {
-      position: fixed;
-      top: 0px;
-      bottom: 0;
-      left: 0;
-      z-index: 1000;
-      display: block;
-      overflow-x: hidden;
-      overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        position: fixed;
+        top: 0px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        overflow-x: hidden;
+        overflow-y: auto;
+        /* Scrollable contents if viewport is shorter than content. */
     }
-  }
-  
-  /*
+}
+
+
+/*
    * Global add-ons
    */
-  
-  .sub-header {
+
+.sub-header {
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
-  }
-  
-  /*
+}
+
+
+/*
    * Top navigation
    * Hide default border to remove 1px line.
    */
-  .navbar-fixed-top {
+
+.navbar-fixed-top {
     border: 0;
-  }
-  
-  /*
+}
+
+
+/*
    * Sidebar
    */
-  
-  /* Hide for mobile, show later */
 
-  
-  /* Sidebar navigation */
-  .nav-sidebar {
-    margin-right: -21px; /* 20px padding + 1px border */
+
+/* Hide for mobile, show later */
+
+
+/* Sidebar navigation */
+
+.nav-sidebar {
+    margin-right: -21px;
+    /* 20px padding + 1px border */
     margin-bottom: 20px;
     margin-left: -20px;
-  }
-  .nav-sidebar > li > a {
+}
+
+.nav-sidebar>li>a {
     padding-right: 20px;
     padding-left: 20px;
-  }
-  .nav-sidebar > .active > a,
-  .nav-sidebar > .active > a:hover,
-  .nav-sidebar > .active > a:focus {
+}
+
+.nav-sidebar>.active>a,
+.nav-sidebar>.active>a:hover,
+.nav-sidebar>.active>a:focus {
     color: #fff;
-    background-color: #428bca;
-  }
-  
-  
-  /*
+    background-color: #FFC312;
+}
+
+
+/*
    * Main content
    */
-  
-  .main {
+
+.main {
     padding: 0px;
-  }
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
     .main {
-      padding-right: 40px;
-      padding-left: 40px;
+        padding-right: 40px;
+        padding-left: 40px;
     }
-  }
-  .main .page-header {
+}
+
+.main .page-header {
     margin-top: 0;
-  }
-  
-  
-  /*
+}
+
+
+/*
    * Placeholder dashboard ideas
    */
-  
-  .placeholders {
+
+.placeholders {
     margin-bottom: 30px;
     text-align: center;
-  }
-  .placeholders h4 {
+}
+
+.placeholders h4 {
     margin-bottom: 0;
-  }
-  .placeholder {
+}
+
+.placeholder {
     margin-bottom: 20px;
-  }
-  .placeholder img {
+}
+
+.placeholder img {
     display: inline-block;
     border-radius: 50%;
-  }
+}
+
+.container {
+    align-content: center;
+}
+
+.formcard {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 430px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    overflow-x: auto;
+}
+
+.request_btn {
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+}
+
+.request_btn:hover {
+    color: black;
+    background-color: white;
+}

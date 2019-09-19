@@ -1,0 +1,20 @@
+{% extends 'services/base.html' %}
+{% load static %}
+{% block title %} {{ title }} {% endblock title %}
+{% block sidebar_content %} 
+<li><a href="/dashboard/">Dashboard</a></li>
+<li class="active"><a href="/request/">Realizar chamada</a></li>
+{% endblock sidebar_content %} 
+{% block content %}
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<form  class="formcard container" method="post" action="">
+    {% csrf_token %}
+    <h1>Requisição</h1>
+
+    {{ form.as_p }}
+    <div class="form-group">
+        <input type="submit" value="Solicitar" class="btn float-right request_btn">
+    </div>
+</form>
+</div>
+{% endblock content %}

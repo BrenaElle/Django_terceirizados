@@ -1,42 +1,41 @@
 {% extends 'services/base.html' %}
-{% load static %}
-{% block title %} {{ title }} {% endblock title %}
+{% load static %} 
+{% block title %} {{ title }} {% endblock title %} 
+{% block sidebar_content %} 
+<li class="active"><a href="/dashboard/">Dashboard</a></li>
+<li><a href="/request/">Realizar chamada</a></li>
+{% endblock sidebar_content %} 
 {% block content %}
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <div class="row placeholders">
         <div class="col-xs-6 col-sm-2 placeholder">
             <a>
-                <img src="{%static 'services/home.png' %}" width="100" height="100" class="img-responsive"
-                    alt="Generic placeholder thumbnail">
+                <img src="{%static 'services/home.png' %}" width="100" height="100" class="img-responsive" alt="Generic placeholder thumbnail">
                 <h4>Todos</h4>
             </a>
         </div>
         <div class="col-xs-6 col-sm-2 placeholder">
             <a>
-                <img src="{%static 'services/clean.png' %}" width="100" height="100" class="img-responsive"
-                    alt="Generic placeholder thumbnail">
+                <img src="{%static 'services/clean.png' %}" width="100" height="100" class="img-responsive" alt="Generic placeholder thumbnail">
                 <h4>Limpeza</h4>
             </a>
         </div>
         <div class="col-xs-6 col-sm-2 placeholder">
             <a>
-                <img src="{%static 'services/tools.png' %}" width="100" height="100" class="img-responsive"
-                    alt="Generic placeholder thumbnail">
+                <img src="{%static 'services/tools.png' %}" width="100" height="100" class="img-responsive" alt="Generic placeholder thumbnail">
                 <h4>Manutenção</h4>
             </a>
         </div>
         <div class="col-xs-6 col-sm-2 placeholder">
             <a>
-                <img src="{%static 'services/gardening.jpg' %}" width="100" height="100" class="img-responsive"
-                    alt="Generic placeholder thumbnail">
+                <img src="{%static 'services/gardening.jpg' %}" width="100" height="100" class="img-responsive" alt="Generic placeholder thumbnail">
                 <h4>Jardinagem</h4>
             </a>
         </div>
         <div class="col-xs-6 col-sm-2 placeholder">
             <a>
-            <img src="{%static 'services/pool.png' %}" width="100" height="100" class="img-responsive"
-                alt="Generic placeholder thumbnail">
-            <h4>Piscina</h4>
+                <img src="{%static 'services/pool.png' %}" width="100" height="100" class="img-responsive" alt="Generic placeholder thumbnail">
+                <h4>Piscina</h4>
             </a>
         </div>
     </div>
