@@ -1,16 +1,16 @@
 {% extends 'services/base.html' %}
 {% load static %}
+{% load auth_extras %}
 {% block title %} {{ title }} {% endblock title %}
 {% block sidebar_content %}
-<li><a href="/dashboard/">Dashboard</a></li>
-<li class="active"><a href="/request/">Realizar chamada</a></li>
+<li class="active"><a href="/dashboard/">Dashboard</a></li>
+<li><a href="/request/">Realizar chamada</a></li>
 {% endblock sidebar_content %}
 {% block content %}
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     {% load widget_tweaks %}
     <form class="formcard container" method="post" action="">
         {% csrf_token %}
-        <h1>Requisição</h1>
         {{ form.non_field_errors }}
         <div class="form-group">
             <label for="{{ form.date.id_for_label }}">Data Marcada</label>
@@ -21,7 +21,13 @@
             {% render_field form.department class="form-control" %}
             <label for="{{ form.justification.id_for_label }}">Justificativa</label>
             {% render_field form.justification class="form-control" %}
-            <input type="submit" value="Solicitar" class="btn float-right request_btn">
+            {% if request.user|has_group:"Terceirizados" %}
+            <label for="{{ form.status.id_for_label }}">Status</label>
+            {% render_field form.status class="form-control" %}
+            {% else %}
+            {{ form.status.as_hidden }}
+            {% endif %}
+            <input type="submit" value="Atualizar" style="margin-top: 10px;" class="btn float-right request_btn">
         </div>
     </form>
 </div>

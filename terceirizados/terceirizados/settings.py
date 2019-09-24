@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap_datepicker_plus',
+    'bootstrap4',
     'app.core',
     'app.services',
     'widget_tweaks',
+    'app.services.templatetags',
 ]
 
 MIDDLEWARE = [
@@ -54,29 +57,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'terceirizados.urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
 WSGI_APPLICATION = 'terceirizados.wsgi.application'
 
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,6 +77,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -146,3 +136,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = ''
 STATICFILES_DIRS = (os.path.join('static'), )
+
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}

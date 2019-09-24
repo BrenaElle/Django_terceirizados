@@ -1,40 +1,46 @@
 {% extends 'services/base.html' %}
-{% load static %} 
-{% block title %} {{ title }} {% endblock title %} 
-{% block sidebar_content %} 
+{% load static %}
+{% load auth_extras %}
+{% block title %} {{ title }} {% endblock title %}
+{% block sidebar_content %}
 <li class="active"><a href="/dashboard/">Dashboard</a></li>
 <li><a href="/request/">Realizar chamada</a></li>
-{% endblock sidebar_content %} 
+{% endblock sidebar_content %}
 {% block content %}
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <div class="row placeholders">
         <div class="col-xs-6 col-sm-2 placeholder">
             <a>
-                <img src="{%static 'services/home.png' %}" width="100" height="100" class="img-responsive" alt="Generic placeholder thumbnail">
+                <img src="{%static 'services/home.png' %}" width="100" height="100" class="img-responsive"
+                    alt="Generic placeholder thumbnail">
                 <h4>Todos</h4>
             </a>
         </div>
         <div class="col-xs-6 col-sm-2 placeholder">
             <a>
-                <img src="{%static 'services/clean.png' %}" width="100" height="100" class="img-responsive" alt="Generic placeholder thumbnail">
+                <img src="{%static 'services/clean.png' %}" width="100" height="100" class="img-responsive"
+                    alt="Generic placeholder thumbnail">
                 <h4>Limpeza</h4>
             </a>
         </div>
         <div class="col-xs-6 col-sm-2 placeholder">
             <a>
-                <img src="{%static 'services/tools.png' %}" width="100" height="100" class="img-responsive" alt="Generic placeholder thumbnail">
+                <img src="{%static 'services/tools.png' %}" width="100" height="100" class="img-responsive"
+                    alt="Generic placeholder thumbnail">
                 <h4>Manutenção</h4>
             </a>
         </div>
         <div class="col-xs-6 col-sm-2 placeholder">
             <a>
-                <img src="{%static 'services/gardening.jpg' %}" width="100" height="100" class="img-responsive" alt="Generic placeholder thumbnail">
+                <img src="{%static 'services/gardening.jpg' %}" width="100" height="100" class="img-responsive"
+                    alt="Generic placeholder thumbnail">
                 <h4>Jardinagem</h4>
             </a>
         </div>
         <div class="col-xs-6 col-sm-2 placeholder">
             <a>
-                <img src="{%static 'services/pool.png' %}" width="100" height="100" class="img-responsive" alt="Generic placeholder thumbnail">
+                <img src="{%static 'services/pool.png' %}" width="100" height="100" class="img-responsive"
+                    alt="Generic placeholder thumbnail">
                 <h4>Piscina</h4>
             </a>
         </div>
@@ -51,10 +57,12 @@
                     <th>Setor</th>
                     <th>Agenda</th>
                     <th>Status</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 {% for service in service_list %}
+                {% if request.user|has_group:"Terceirizados" %}
                 <tr style="background-color: rgba(0,0,0,0.5) !important;">
                     <td>{{ service.id }}</td>
                     <td>{{ service.justification }}</td>
@@ -62,7 +70,21 @@
                     <td>{{ service.get_department }}</td>
                     <td>{{ service.date }}</td>
                     <td>{{ service.get_status }}</td>
+                    <td><a href="/request/{{ service.id }}/edit" class="btn float-right request_btn">Editar</a></td>
                 </tr>
+                {% else %}
+                {% if request.user == service.requester %}
+                <tr style="background-color: rgba(0,0,0,0.5) !important;">
+                    <td>{{ service.id }}</td>
+                    <td>{{ service.justification }}</td>
+                    <td>{{ service.place }}</td>
+                    <td>{{ service.get_department }}</td>
+                    <td>{{ service.date }}</td>
+                    <td>{{ service.get_status }}</td>
+                    <td><a href="/request/{{ service.id }}/edit" class="btn float-right request_btn">Editar</a></td>
+                </tr>
+                {% endif %}
+                {% endif %}
                 {% endfor %}
             </tbody>
         </table>
